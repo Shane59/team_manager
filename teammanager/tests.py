@@ -4,12 +4,11 @@ from .models import Member
 
 # Model Test
 class MemberModelTest(TestCase):
-  def test_is_admin_with_admin(self):
-    # isAdmin returns false when is_admin is false
+  def test_is_admin_return_true(self):
     admin_member = Member(is_admin=True)
     self.assertIs(admin_member.isAdmin(), True)
-  def test_is_admin_with_nonadmin(self):
-    # isAdmin returns false when is_admin is false
+
+  def test_is_admin_return_false(self):
     admin_member = Member(is_admin=False)
     self.assertIs(admin_member.isAdmin(), False)
 
@@ -66,19 +65,19 @@ class MemberEditViewTests(TestCase):
       location="1234-5678-90",
       is_admin=False)
     member.first_name = "Tate"
-    response = self.client.post("/teammanager/edit_member/", kwargs={'pk': 1})
+    self.client.post("/teammanager/edit_member/", kwargs={'pk': 1})
     self.assertEqual(member.first_name, "Tate")
     self.assertNotEqual(member.first_name, "Alex")
 
   def test_delete_member(self):
-    member1 = Member.objects.create(
+    Member.objects.create(
       pk=1,
       first_name="Alex",
       last_name="Miyake",
       email="miyake@example.com",
       location="1234-5678-90",
       is_admin=False)
-    member2 = Member.objects.create(
+    Member.objects.create(
       pk=2,
       first_name="Jason",
       last_name="Douglas",
