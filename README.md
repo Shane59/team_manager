@@ -4,6 +4,18 @@ This application manages the list of the teammanager.<br>
 You can add/edit/delete team members.<br>
 Team member data is saved in SQLite database.<br>
 
+Click + sign to start adding a team member.
+![add](image.png)
+
+Fill out all the fields and click save.
+![save](image-1.png)
+
+You will redirect to the home page.
+![after add](image-2.png)
+
+Click the existing member to edit or delete the member.
+![edit or delete](image-3.png)
+
 ## Prerequisites
 1. install python
     
