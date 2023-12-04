@@ -8,7 +8,10 @@ Team member data is saved in SQLite database.<br>
 1. install python
     
 ## How to run the project
-
+1. Migrate SQLite database
+   ```
+   python3 manage.py migrate
+   ```
 1. Run the server
     ```
     python3 manage.py runserver
